@@ -87,7 +87,12 @@ const Register = () => {
             });
 
             const res = await data.json();
-          console.log(res.status);
+            //console.log(res.status)
+         if(res.status === 422){
+            toast.error(" this email already exists!", {
+                position: "top-center"
+            })
+         }
 
             if (res.status === 201) {
                 toast.success("Registration Successfully done 😃!", {
